@@ -65,6 +65,12 @@ public class PhotoGalleryFragment extends Fragment {
         Log.i(TAG, "Background thread destroyed");
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mThumbnailThread.clearQueue();
+    }
+
     void setupAdapter() {
         if (getActivity() == null || mGridView == null) return;
 
