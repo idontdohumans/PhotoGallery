@@ -47,8 +47,6 @@ public class PhotoGalleryFragment extends Fragment {
         setHasOptionsMenu(true);
         updateItems();
 
-        PollService.setServiceAlarm(getActivity(), true);
-
         mThumbnailThread = new ThumbnailDownloader(new Handler());
         mThumbnailThread.setListener(new ThumbnailDownloader.Listener<ImageView>() {
             public void onThumbnailDownloaded(ImageView imageView, Bitmap thumbnail) {
@@ -133,6 +131,11 @@ public class PhotoGalleryFragment extends Fragment {
                         .putString(FlickrFetchr.PREF_SEARCH_QUERY, null)
                         .commit();
                 updateItems();
+                return true;
+            case R.id.menu_item_toggle_polling:
+                boolean shouldStartAlarm = !PollService.isServiceAlarmOn(getActivity());
+                PollService.setServiceAlarm(getActivity(), shouldStartAlarm);
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
