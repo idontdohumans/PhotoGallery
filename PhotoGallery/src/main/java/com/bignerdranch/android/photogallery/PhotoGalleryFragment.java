@@ -35,7 +35,7 @@ public class PhotoGalleryFragment extends Fragment {
 
         setRetainInstance(true);
         setHasOptionsMenu(true);
-        new FetchItemsTask().execute();
+        updateItems();
 
         mThumbnailThread = new ThumbnailDownloader(new Handler());
         mThumbnailThread.setListener(new ThumbnailDownloader.Listener<ImageView>() {
@@ -48,6 +48,10 @@ public class PhotoGalleryFragment extends Fragment {
         mThumbnailThread.start();
         mThumbnailThread.getLooper();
         Log.i(TAG, "Background thread started");
+    }
+
+    public void updateItems() {
+        new FetchItemsTask().execute();
     }
 
     @Override
