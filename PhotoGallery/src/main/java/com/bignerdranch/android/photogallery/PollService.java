@@ -28,6 +28,9 @@ public class PollService extends IntentService {
     public static final String ACTION_SHOW_NOTIFICATIONS =
             "com.bignerdranch.android.photogallery.SHOW_NOTIFICATION";
 
+    public static final String PERM_PRIVATE =
+            "com.bignerdranch.android.photogallery.PRIVATE";
+
     public PollService() {
         super(TAG);
     }
@@ -79,7 +82,7 @@ public class PollService extends IntentService {
 
             notificationManager.notify(0, notification);
 
-            sendBroadcast(new Intent(ACTION_SHOW_NOTIFICATIONS));
+            sendBroadcast(new Intent(ACTION_SHOW_NOTIFICATIONS), PERM_PRIVATE);
         } else {
             Log.i(TAG, "Got an old result: " + resultId);
         }
