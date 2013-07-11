@@ -14,7 +14,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -28,7 +27,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.SearchView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -69,7 +67,7 @@ public class PhotoGalleryFragment extends VisibleFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_photo_galery, container, false);
+        View v = inflater.inflate(R.layout.fragment_photo_gallery, container, false);
 
         mGridView = (GridView)v.findViewById(R.id.gridView);
 
