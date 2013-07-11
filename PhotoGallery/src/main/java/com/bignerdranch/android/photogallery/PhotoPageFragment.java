@@ -25,6 +25,7 @@ public class PhotoPageFragment extends VisibleFragment {
         mUrl = getActivity().getIntent().getData().toString();
     }
 
+    @SuppressWarnings("SetJavaScriptEnabled")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_photo_page, parent, false);
